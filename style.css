@@ -33,12 +33,15 @@ input[type="text"] {
   margin-right: 10px;
   margin-bottom: 20px;
   border-bottom: 2px solid #ffffff;
+  transition: border-radius 0.6s ease-in-out;
 }
 
 input:focus {
   outline: #c8ff00;
   background-color: #ffffff;
   border-bottom: 3px solid #f4e988d9;
+  border-radius: 20px;
+  transition: border-radius 0.6s ease-in-out;
 }
 
 button {
@@ -47,9 +50,15 @@ button {
   background-color: #400069eb;
   color: #fff;
   border: 2px solid #e9e8ee1c;
-
   border-radius: 8px;
   cursor: pointer;
+  transition: border-radius 0.6s ease-in-out;
+}
+
+ button:hover {
+  border-radius: 12px;
+  transition: border-radius 0.6s ease-in-out;
+  color: #e5f2ace8;
 }
 
 #results {
@@ -59,10 +68,10 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 }
 
 .movie {
+  cursor: pointer;
   color: #ffffff77;
   max-height: 500px;
   margin-bottom: 15px;
@@ -72,7 +81,10 @@ button {
   width: calc(33.33% - 10px); /* Ajusta el ancho de cada elemento .movie para que haya tres elementos en una fila */
   box-sizing: border-box;
 }
-
+.movie:hover {
+  background-color: #5900ff42; /* Cambia el color de fondo en hover */
+  transition: background-color 0.6s ease;
+}
 .movie img {
   border-radius: 10px;
   width: 150px;
@@ -97,4 +109,8 @@ button {
   font-weight: 600;
   text-align: left;
   margin: 5px 0;
+}
+#cantidad {
+  text-align: left;
+  color:#fff;
 }

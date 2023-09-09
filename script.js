@@ -5,7 +5,13 @@ let url_base = 'https://api.themoviedb.org/3/search/movie'
 let url_img = 'https://image.tmdb.org/t/p/w200'
 
 let getResults = document.getElementById('results')
-
+let cantResult = document.getElementById('cantidad')
+let teclaEnter = document.getElementById('searchInput');
+teclaEnter.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        searchMovies()
+}});
 
 function searchMovies() {
     getResults.innerHTML = 'Cargando...'
@@ -23,6 +29,7 @@ function displayMovies(movies) {
         const fechaB = new Date(b.release_date)
         return fechaB - fechaA
     })
+    cantResult.innerHTML = 'Resultados: ' + movies.length
     getResults.innerHTML = ''
 
     if (movies.length === 0) {
@@ -47,12 +54,13 @@ function displayMovies(movies) {
         let posterPath = url_img + movie.poster_path
         let poster = document.createElement('img')
         poster.src = posterPath
+       
 
         movieDiv.appendChild(poster)
         movieDiv.appendChild(title)
         movieDiv.appendChild(releaseDate)
         movieDiv.appendChild(overview)
-
+   
         getResults.appendChild(movieDiv)
     })
 }

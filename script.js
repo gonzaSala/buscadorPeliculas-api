@@ -18,6 +18,11 @@ function searchMovies() {
 }
 
 function displayMovies(movies) {
+    movies.sort((a,b)=> {
+        const fechaA = new Date(a.release_date)
+        const fechaB = new Date(b.release_date)
+        return fechaB - fechaA
+    })
     getResults.innerHTML = ''
 
     if (movies.length === 0) {

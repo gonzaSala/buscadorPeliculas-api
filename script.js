@@ -30,12 +30,13 @@ function displayMovies(movies) {
         movieDiv.classList.add('movie')
 
         let title = document.createElement('h2')
-        title.textContent = movie.title
+        title.textContent = movie.title.toUpperCase()
 
         let releaseDate = document.createElement('p')
-        releaseDate.textContent = 'La fecha del lanzamiento fue: ' + movie.release_date
+        releaseDate.textContent =  movie.release_date
 
         let overview = document.createElement('p')
+        overview.classList.add('description')
         overview.textContent = movie.overview
 
         let posterPath = url_img + movie.poster_path
